@@ -1,0 +1,17 @@
+/test/resources/target/*
+*.idea
+*.ipr
+*.iml
+target/*
+project/project/*
+project/target/*
+/project/target/*
+/target/*
+*.log*
+/logs/*
+*.class
+*.idea
+/target/*
+*.class
+*.log
+conf/application.prod.conf
