@@ -15,9 +15,9 @@
  *
  */
 
-package com.inland24.plantsim.models
+package com.inland24.plantmon.models
 
-import com.inland24.plantsim.models.PowerPlantType.{OnOffType, RampUpType}
+import com.inland24.plantmon.models.PowerPlantType.{OnOffType, RampUpType}
 import play.api.libs.json._
 
 trait DispatchCommand extends PowerPlantCommand {

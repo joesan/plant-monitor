@@ -15,10 +15,10 @@
  *
  */
 
-package com.inland24.plantsim.models
+package com.inland24.plantmon.models
 
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.models.PowerPlantConfig.{
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.models.PowerPlantConfig.{
   OnOffTypeConfig,
   RampUpTypeConfig,
   UnknownConfig

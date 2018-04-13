@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.models
+package com.inland24.plantmon.models
 
 // Trait representing the occurrence of events for a PowerPlant in the database
 sealed trait PowerPlantDBEvent[T <: PowerPlantConfig] {

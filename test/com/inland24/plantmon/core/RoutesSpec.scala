@@ -15,13 +15,13 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import org.scalatestplus.play._
 import play.api.test.Helpers._
 import play.api.test.FakeRequest
-import com.inland24.plantsim.controllers.ApplicationTestFactory
-import com.inland24.plantsim.services.database.DBServiceSpec
+import com.inland24.plantmon.controllers.ApplicationTestFactory
+import com.inland24.plantmon.services.database.DBServiceSpec
 import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
 import org.scalatest.concurrent.{IntegrationPatience, ScalaFutures}
 import play.api.http.Port

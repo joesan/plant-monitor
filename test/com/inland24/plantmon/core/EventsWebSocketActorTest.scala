@@ -15,20 +15,20 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.testkit.{ImplicitSender, TestKit}
-import com.inland24.plantsim.models.PowerPlantActorMessage.{
+import com.inland24.plantmon.models.PowerPlantActorMessage.{
   OutOfServiceMessage,
   ReturnToServiceMessage
 }
-import com.inland24.plantsim.models.PowerPlantConfig.OnOffTypeConfig
-import com.inland24.plantsim.models.PowerPlantType.OnOffType
-import com.inland24.plantsim.services.database.DBServiceSpec
-import com.inland24.plantsim.services.simulator.onOffType.OnOffTypeActor
-import com.inland24.plantsim.services.simulator.onOffType.OnOffTypeActor.Config
-import com.inland24.plantsim.streams.EventsStream
+import com.inland24.plantmon.models.PowerPlantConfig.OnOffTypeConfig
+import com.inland24.plantmon.models.PowerPlantType.OnOffType
+import com.inland24.plantmon.services.database.DBServiceSpec
+import com.inland24.plantmon.services.simulator.onOffType.OnOffTypeActor
+import com.inland24.plantmon.services.simulator.onOffType.OnOffTypeActor.Config
+import com.inland24.plantmon.streams.EventsStream
 import monix.execution.Scheduler
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
 import play.api.libs.json.{JsValue, Json}

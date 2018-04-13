@@ -15,13 +15,13 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import akka.actor.{ActorRef, ActorSystem}
 import akka.stream.Materializer
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.services.database.PowerPlantService
-import com.inland24.plantsim.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.services.database.PowerPlantService
+import com.inland24.plantmon.services.database.repository.impl.PowerPlantRepoAsTask
 import monix.execution.Scheduler
 // ******* Note: Both these imports should be here! Do not remove them!
 import monix.cats._

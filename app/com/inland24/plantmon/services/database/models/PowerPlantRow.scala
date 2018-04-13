@@ -15,9 +15,9 @@
  *
  */
 
-package com.inland24.plantsim.services.database.models
+package com.inland24.plantmon.services.database.models
 
-import com.inland24.plantsim.models.PowerPlantType
+import com.inland24.plantmon.models.PowerPlantType
 import org.joda.time.DateTime
 
 case class PowerPlantRow(

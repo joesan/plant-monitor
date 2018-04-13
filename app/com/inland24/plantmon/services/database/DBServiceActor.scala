@@ -15,21 +15,21 @@
  *
  */
 
-package com.inland24.plantsim.services.database
+package com.inland24.plantmon.services.database
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
-import com.inland24.plantsim.config.DBConfig
-import com.inland24.plantsim.core.SupervisorActor.SupervisorEvents
-import com.inland24.plantsim.models.PowerPlantConfig.PowerPlantsConfig
-import com.inland24.plantsim.models.PowerPlantDBEvent.{
+import com.inland24.plantmon.config.DBConfig
+import com.inland24.plantmon.core.SupervisorActor.SupervisorEvents
+import com.inland24.plantmon.models.PowerPlantConfig.PowerPlantsConfig
+import com.inland24.plantmon.models.PowerPlantDBEvent.{
   PowerPlantCreateEvent,
   PowerPlantDeleteEvent,
   PowerPlantUpdateEvent
 }
-import com.inland24.plantsim.models.{PowerPlantConfig, PowerPlantDBEvent}
-import com.inland24.plantsim.services.database.models.PowerPlantRow
-import com.inland24.plantsim.services.database.repository.impl.PowerPlantRepoAsTask
-import com.inland24.plantsim.streams.DBObservable
+import com.inland24.plantmon.models.{PowerPlantConfig, PowerPlantDBEvent}
+import com.inland24.plantmon.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantmon.streams.DBObservable
 // ******* Note: Both these imports should be here! Do not remove them!
 import monix.cats._
 import monix.eval.Task
@@ -89,7 +89,7 @@ class DBServiceActor private (dbConfig: DBConfig, supervisorActor: ActorRef)(
           override implicit def scheduler: Scheduler = ec
 
           override def onNext(elem: Seq[PowerPlantRow]): Future[Ack] = {
-            self ! com.inland24.plantsim.models.toPowerPlantsConfig(elem)
+            self ! com.inland24.plantmon.models.toPowerPlantsConfig(elem)
             Continue
           }
 

@@ -15,13 +15,13 @@
  *
  */
 
-package com.inland24.plantsim.controllers
+package com.inland24.plantmon.controllers
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.testkit.TestKit
-import com.inland24.plantsim.core.AppBindings
-import com.inland24.plantsim.services.database.DBServiceSpec
+import com.inland24.plantmon.core.AppBindings
+import com.inland24.plantmon.services.database.DBServiceSpec
 import org.scalatest.{
   BeforeAndAfterAll,
   MustMatchers,

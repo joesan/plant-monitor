@@ -15,16 +15,16 @@
  *
  */
 
-package com.inland24.plantsim.streams
+package com.inland24.plantmon.streams
 
 import akka.actor.{Actor, ActorLogging, Props}
-import com.inland24.plantsim.models.PowerPlantSignal
-import com.inland24.plantsim.models.PowerPlantSignal.{
+import com.inland24.plantmon.models.PowerPlantSignal
+import com.inland24.plantmon.models.PowerPlantSignal.{
   DefaultAlert,
   Genesis,
   Transition
 }
-import com.inland24.plantsim.streams.EventsStream.DoNotSendThisMessageAsThisIsDangerousButWeHaveItHereForTestingPurposes
+import com.inland24.plantmon.streams.EventsStream.DoNotSendThisMessageAsThisIsDangerousButWeHaveItHereForTestingPurposes
 import monix.reactive.subjects.ConcurrentSubject
 
 final class EventsStream(

@@ -15,12 +15,12 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.testkit.TestKit
-import com.inland24.plantsim.config.AppConfig
+import com.inland24.plantmon.config.AppConfig
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
 
 class AppBindingsTest

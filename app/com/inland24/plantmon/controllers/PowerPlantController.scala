@@ -15,11 +15,11 @@
  *
  */
 
-package com.inland24.plantsim.controllers
+package com.inland24.plantmon.controllers
 
-import com.inland24.plantsim.core.AppBindings
-import com.inland24.plantsim.models.PowerPlantType.UnknownType
-import com.inland24.plantsim.models.{
+import com.inland24.plantmon.core.AppBindings
+import com.inland24.plantmon.models.PowerPlantType.UnknownType
+import com.inland24.plantmon.models.{
   PowerPlantConfig,
   PowerPlantFilter,
   PowerPlantType,
@@ -27,7 +27,7 @@ import com.inland24.plantsim.models.{
 }
 import play.api.libs.json.{JsValue, Json}
 import play.api.mvc.{Action, AnyContent, ControllerComponents}
-import com.inland24.plantsim.models._
+import com.inland24.plantmon.models._
 import monix.execution.FutureUtils.extensions._
 
 import scala.concurrent.Future

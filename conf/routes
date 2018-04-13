@@ -6,42 +6,42 @@
 GET			/							 controllers.Assets.at(path="https://github.com/joesan/plant-simulator/blob/master/README.md", file)
 
 # Endpoints for Configuration, Metrics
-GET			/plantsim/config					     com.inland24.plantsim.controllers.ApplicationController.appConfig
-GET         /plantsim/powerplant/metrics             com.inland24.plantsim.controllers.ApplicationController.metrics
+GET			/plantsim/config					     com.inland24.plantmon.controllers.ApplicationController.appConfig
+GET         /plantsim/powerplant/metrics             com.inland24.plantmon.controllers.ApplicationController.metrics
 
 # Endpoints to add / update / read / delete PowerPlant's
-GET         /plantsim/powerplant/:id/details         com.inland24.plantsim.controllers.PowerPlantController.powerPlantDetails(id: Int)
-GET         /plantsim/powerplants                    com.inland24.plantsim.controllers.PowerPlantController.powerPlants(onlyActive: Boolean ?= true, page: Int ?= 1)
-GET         /plantsim/powerplants/search             com.inland24.plantsim.controllers.PowerPlantController.searchPowerPlants(onlyActive: Option[Boolean], page: Int ?= 1, powerPlantType: Option[String], powerPlantName: Option[String], orgName: Option[String])
-POST        /plantsim/powerplant/:id/update          com.inland24.plantsim.controllers.PowerPlantController.updatePowerPlant(id: Int)
+GET         /plantsim/powerplant/:id/details         com.inland24.plantmon.controllers.PowerPlantController.powerPlantDetails(id: Int)
+GET         /plantsim/powerplants                    com.inland24.plantmon.controllers.PowerPlantController.powerPlants(onlyActive: Boolean ?= true, page: Int ?= 1)
+GET         /plantsim/powerplants/search             com.inland24.plantmon.controllers.PowerPlantController.searchPowerPlants(onlyActive: Option[Boolean], page: Int ?= 1, powerPlantType: Option[String], powerPlantName: Option[String], orgName: Option[String])
+POST        /plantsim/powerplant/:id/update          com.inland24.plantmon.controllers.PowerPlantController.updatePowerPlant(id: Int)
 
 # Endpoints to steer a PowerPlant
-GET         /plantsim/powerplant/:id/telemetry       com.inland24.plantsim.controllers.PowerPlantOperationsController.powerPlantSignals(id: Int)
-POST        /plantsim/powerplant/:id/dispatch        com.inland24.plantsim.controllers.PowerPlantOperationsController.dispatchPowerPlant(id: Int)
-POST        /plantsim/powerplant/:id/release         com.inland24.plantsim.controllers.PowerPlantOperationsController.returnToNormalPowerPlant(id: Int)
-POST        /plantsim/powerplant/:id/outofservice    com.inland24.plantsim.controllers.PowerPlantOperationsController.outOfServicePowerPlant(id: Int)
-POST        /plantsim/powerplant/:id/returntoservice com.inland24.plantsim.controllers.PowerPlantOperationsController.returnToServicePowerPlant(id: Int)
+GET         /plantsim/powerplant/:id/telemetry       com.inland24.plantmon.controllers.PowerPlantOperationsController.powerPlantSignals(id: Int)
+POST        /plantsim/powerplant/:id/dispatch        com.inland24.plantmon.controllers.PowerPlantOperationsController.dispatchPowerPlant(id: Int)
+POST        /plantsim/powerplant/:id/release         com.inland24.plantmon.controllers.PowerPlantOperationsController.returnToNormalPowerPlant(id: Int)
+POST        /plantsim/powerplant/:id/outofservice    com.inland24.plantmon.controllers.PowerPlantOperationsController.outOfServicePowerPlant(id: Int)
+POST        /plantsim/powerplant/:id/returntoservice com.inland24.plantmon.controllers.PowerPlantOperationsController.returnToServicePowerPlant(id: Int)
 
 # Endpoints to tap into Alerts and Events
-GET         /plantsim/powerplant/events              com.inland24.plantsim.controllers.PowerPlantOperationsController.events(id: Option[Int] = None)
+GET         /plantsim/powerplant/events              com.inland24.plantmon.controllers.PowerPlantOperationsController.events(id: Option[Int] = None)
 
 # Endpoints to tap into Telemetry Signals
-GET         /plantsim/powerplant/signals             com.inland24.plantsim.controllers.PowerPlantOperationsController.signals(id: Int)
+GET         /plantsim/powerplant/signals             com.inland24.plantmon.controllers.PowerPlantOperationsController.signals(id: Int)
 
 ###### Test Endpoint [ALERT: Use this not! This is only for demonstration purposes!!!!] ######
-GET         /plantsim/powerplant/:id/killEventStream com.inland24.plantsim.controllers.PowerPlantOperationsController.kill(id: Int)
+GET         /plantsim/powerplant/:id/killEventStream com.inland24.plantmon.controllers.PowerPlantOperationsController.kill(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET			/assets/*file				 controllers.Assets.versioned(path="/public", file: Asset)
 
 # Swagger API Docs ###
-#GET         /docs/                       com.inland24.plantsim.controllers.ApplicationController.redirectDocs
+#GET         /docs/                       com.inland24.plantmon.controllers.ApplicationController.redirectDocs
 #GET         /swagger.json                controllers.ApiHelpController.getResources
 #GET         /docs/                       controllers.Assets.at(path="/public/swagger-ui",file="index.html")
 #GET         /docs/*file                  controllers.Assets.at(path="/public/swagger-ui",file)
 
 #GET    /swagger.json            controllers.ApiHelpController.getResources
-#GET    /docs/                   com.inland24.plantsim.controllers.ApplicationController.redirectDocs
+#GET    /docs/                   com.inland24.plantmon.controllers.ApplicationController.redirectDocs
 ##GET   /docs/*file              controllers.Assets.at(path="/public/swagger-ui",file)
 
 #GET    /webjars/*file           controllers.WebJarAssets.at(file)

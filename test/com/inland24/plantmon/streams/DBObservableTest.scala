@@ -15,15 +15,15 @@
  *
  */
 
-package com.inland24.plantsim.streams
+package com.inland24.plantmon.streams
 
 import akka.actor.ActorSystem
-import com.inland24.plantsim.models.PowerPlantConfig
-import com.inland24.plantsim.models.PowerPlantConfig.PowerPlantsConfig
-import com.inland24.plantsim.models.PowerPlantType.OnOffType
-import com.inland24.plantsim.services.database.models.PowerPlantRow
-import com.inland24.plantsim.services.database.repository.impl.PowerPlantRepoAsTask
-import com.inland24.plantsim.services.database.{
+import com.inland24.plantmon.models.PowerPlantConfig
+import com.inland24.plantmon.models.PowerPlantConfig.PowerPlantsConfig
+import com.inland24.plantmon.models.PowerPlantType.OnOffType
+import com.inland24.plantmon.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantmon.services.database.{
   DBServiceSpec,
   PowerPlantService
 }
@@ -134,7 +134,7 @@ class DBObservableTest
             elem.find(row => row.id.contains(2000)) match {
               case Some(_) =>
                 powerPlantsConfig.copy(
-                  powerPlantConfigSeq = com.inland24.plantsim.models
+                  powerPlantConfigSeq = com.inland24.plantmon.models
                     .toPowerPlantsConfig(elem)
                     .powerPlantConfigSeq
                 )

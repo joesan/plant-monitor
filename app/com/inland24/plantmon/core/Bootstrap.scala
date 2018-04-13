@@ -15,9 +15,9 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
-import com.inland24.plantsim.controllers.{
+import com.inland24.plantmon.controllers.{
   ApplicationController,
   PowerPlantController
 }

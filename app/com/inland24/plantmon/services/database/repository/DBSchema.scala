@@ -15,12 +15,12 @@
  *
  */
 
-package com.inland24.plantsim.services.database.repository
+package com.inland24.plantmon.services.database.repository
 
 import java.sql.Timestamp
 
-import com.inland24.plantsim.models.PowerPlantType
-import com.inland24.plantsim.services.database.models.PowerPlantRow
+import com.inland24.plantmon.models.PowerPlantType
+import com.inland24.plantmon.services.database.models.PowerPlantRow
 import org.joda.time.{DateTime, DateTimeZone}
 import slick.jdbc.JdbcProfile
 import slick.lifted.CanBeQueryCondition

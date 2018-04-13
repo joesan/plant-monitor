@@ -15,12 +15,12 @@
  *
  */
 
-package com.inland24.plantsim.services.database
+package com.inland24.plantmon.services.database
 
-import com.inland24.plantsim.models.{PowerPlantFilter, PowerPlantType}
-import com.inland24.plantsim.models.PowerPlantType.{OnOffType, RampUpType}
-import com.inland24.plantsim.services.database.models.PowerPlantRow
-import com.inland24.plantsim.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantmon.models.{PowerPlantFilter, PowerPlantType}
+import com.inland24.plantmon.models.PowerPlantType.{OnOffType, RampUpType}
+import com.inland24.plantmon.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.repository.impl.PowerPlantRepoAsTask
 import org.scalatest.{AsyncFlatSpec, BeforeAndAfterAll}
 import monix.execution.Scheduler.Implicits.global
 

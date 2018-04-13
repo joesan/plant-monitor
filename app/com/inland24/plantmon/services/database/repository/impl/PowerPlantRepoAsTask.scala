@@ -15,12 +15,12 @@
  *
  */
 
-package com.inland24.plantsim.services.database.repository.impl
+package com.inland24.plantmon.services.database.repository.impl
 
-import com.inland24.plantsim.config.DBConfig
-import com.inland24.plantsim.models.PowerPlantFilter
-import com.inland24.plantsim.services.database.models.PowerPlantRow
-import com.inland24.plantsim.services.database.repository.{
+import com.inland24.plantmon.config.DBConfig
+import com.inland24.plantmon.models.PowerPlantFilter
+import com.inland24.plantmon.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.repository.{
   DBSchema,
   PowerPlantRepository
 }

@@ -15,11 +15,11 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import akka.actor.{Actor, ActorLogging, ActorRef, PoisonPill, Props}
 import akka.util.Timeout
-import com.inland24.plantsim.models.PowerPlantActorMessage.TelemetrySignalsMessage
+import com.inland24.plantmon.models.PowerPlantActorMessage.TelemetrySignalsMessage
 import org.joda.time.{DateTime, DateTimeZone}
 import monix.execution.Ack.Continue
 import monix.execution.cancelables.SingleAssignmentCancelable

@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.streams
+package com.inland24.plantmon.streams
 
 import monix.execution.Cancelable
 import monix.reactive.Observable

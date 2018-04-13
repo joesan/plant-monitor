@@ -15,30 +15,30 @@
  *
  */
 
-package com.inland24.plantsim.services.database
+package com.inland24.plantmon.services.database
 
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.pattern.ask
 import akka.testkit.{ImplicitSender, TestKit}
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.core.SupervisorActor.SupervisorEvents
-import com.inland24.plantsim.models.PowerPlantConfig.{
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.core.SupervisorActor.SupervisorEvents
+import com.inland24.plantmon.models.PowerPlantConfig.{
   OnOffTypeConfig,
   PowerPlantsConfig,
   RampUpTypeConfig
 }
-import com.inland24.plantsim.models.PowerPlantDBEvent.{
+import com.inland24.plantmon.models.PowerPlantDBEvent.{
   PowerPlantCreateEvent,
   PowerPlantDeleteEvent,
   PowerPlantUpdateEvent
 }
-import com.inland24.plantsim.models.PowerPlantType.OnOffType
-import com.inland24.plantsim.models.{
+import com.inland24.plantmon.models.PowerPlantType.OnOffType
+import com.inland24.plantmon.models.{
   PowerPlantConfig,
   PowerPlantDBEvent,
   PowerPlantType
 }
-import com.inland24.plantsim.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantmon.services.database.repository.impl.PowerPlantRepoAsTask
 import com.typesafe.scalalogging.LazyLogging
 import org.joda.time.{DateTime, DateTimeZone}
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
@@ -315,7 +315,7 @@ class DBServiceActorTest
 
       // Now send this initial Seq of PowerPlant's to the dbServiceActor (transformed as a PowerPlantConfig type)
       within(2.seconds) {
-        dbServiceActor ! com.inland24.plantsim.models
+        dbServiceActor ! com.inland24.plantmon.models
           .toPowerPlantsConfig(allActivePowerPlants)
         expectNoMsg()
       }
@@ -346,7 +346,7 @@ class DBServiceActorTest
 
       // And then send this update to the dbServiceActor
       within(3.seconds) {
-        dbServiceActor ! com.inland24.plantsim.models
+        dbServiceActor ! com.inland24.plantmon.models
           .toPowerPlantsConfig(allOnOffPlantsUpdated)
         expectNoMsg()
       }

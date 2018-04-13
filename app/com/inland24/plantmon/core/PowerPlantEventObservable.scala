@@ -15,9 +15,9 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
-import com.inland24.plantsim.models.PowerPlantSignal
+import com.inland24.plantmon.models.PowerPlantSignal
 import monix.reactive.OverflowStrategy.Unbounded
 import monix.execution.{Ack, Scheduler}
 import monix.reactive.observers.Subscriber

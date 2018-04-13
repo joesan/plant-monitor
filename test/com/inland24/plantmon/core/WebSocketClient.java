@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.core;
+package com.inland24.plantmon.core;
 
 import org.slf4j.Logger;
 import play.shaded.ahc.org.asynchttpclient.AsyncHttpClient;

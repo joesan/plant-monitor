@@ -1,4 +1,4 @@
-package com.inland24.plantsim.services.http
+package com.inland24.plantmon.services.http
 
 trait HTTPService {
   def post[T](msg: T)

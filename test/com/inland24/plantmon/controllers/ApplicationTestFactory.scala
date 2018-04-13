@@ -15,11 +15,11 @@
  *
  */
 
-package com.inland24.plantsim.controllers
+package com.inland24.plantmon.controllers
 
 import java.io.File
 
-import com.inland24.plantsim.core.Bootstrap
+import com.inland24.plantmon.core.Bootstrap
 import org.scalatestplus.play.FakeApplicationFactory
 import play.api._
 import play.api.inject._

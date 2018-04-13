@@ -15,11 +15,11 @@
  *
  */
 
-package com.inland24.plantsim.services.database.repository
+package com.inland24.plantmon.services.database.repository
 
-import com.inland24.plantsim.core.AppMetrics
-import com.inland24.plantsim.models.PowerPlantFilter
-import com.inland24.plantsim.services.database.models.PowerPlantRow
+import com.inland24.plantmon.core.AppMetrics
+import com.inland24.plantmon.models.PowerPlantFilter
+import com.inland24.plantmon.services.database.models.PowerPlantRow
 
 import scala.language.higherKinds
 

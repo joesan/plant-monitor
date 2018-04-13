@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.controllers
+package com.inland24.plantmon.controllers
 
 import play.api.mvc.{BaseController, Result}
 

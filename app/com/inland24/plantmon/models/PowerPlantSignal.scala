@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package com.inland24.plantsim.models
+package com.inland24.plantmon.models
 
 import org.joda.time.{DateTime, DateTimeZone}
 

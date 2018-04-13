@@ -15,12 +15,12 @@
  *
  */
 
-package com.inland24.plantsim.controllers
+package com.inland24.plantmon.controllers
 
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.core.AppMetrics
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.core.AppMetrics
 import play.api.libs.json.Json
-import com.inland24.plantsim.models._
+import com.inland24.plantmon.models._
 import play.api.mvc.ControllerComponents
 
 import scala.concurrent.Future

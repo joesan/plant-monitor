@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.models
+package com.inland24.plantmon.models
 
 case class PowerPlantFilter(
     powerPlantType: Option[PowerPlantType] = None,

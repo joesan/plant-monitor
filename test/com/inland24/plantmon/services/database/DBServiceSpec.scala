@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-package com.inland24.plantsim.services.database
+package com.inland24.plantmon.services.database
 
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.models.PowerPlantType.{OnOffType, RampUpType}
-import com.inland24.plantsim.services.database.models.PowerPlantRow
-import com.inland24.plantsim.services.database.repository.DBSchema
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.models.PowerPlantType.{OnOffType, RampUpType}
+import com.inland24.plantmon.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.repository.DBSchema
 import org.joda.time.{DateTime, DateTimeZone}
 
 import scala.concurrent.Await

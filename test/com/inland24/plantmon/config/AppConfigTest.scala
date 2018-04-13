@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.config
+package com.inland24.plantmon.config
 
 import org.scalatest.FlatSpec
 

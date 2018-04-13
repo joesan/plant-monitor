@@ -15,32 +15,32 @@
  *
  */
 
-package com.inland24.plantsim.streams
+package com.inland24.plantmon.streams
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.testkit.{ImplicitSender, TestKit}
-import com.inland24.plantsim.core.SupervisorActor.SupervisorEvents
-import com.inland24.plantsim.core.{
+import com.inland24.plantmon.core.SupervisorActor.SupervisorEvents
+import com.inland24.plantmon.core.{
   AppBindings,
   PowerPlantEventObservable,
   SupervisorActor
 }
-import com.inland24.plantsim.models.PowerPlantActorMessage.{
+import com.inland24.plantmon.models.PowerPlantActorMessage.{
   OutOfServiceMessage,
   ReturnToServiceMessage
 }
-import com.inland24.plantsim.models.PowerPlantConfig.{
+import com.inland24.plantmon.models.PowerPlantConfig.{
   OnOffTypeConfig,
   RampUpTypeConfig
 }
-import com.inland24.plantsim.models.PowerPlantDBEvent.PowerPlantCreateEvent
-import com.inland24.plantsim.models.PowerPlantSignal
-import com.inland24.plantsim.models.PowerPlantSignal.Transition
-import com.inland24.plantsim.models.PowerPlantState.OutOfService
-import com.inland24.plantsim.models.PowerPlantType.{OnOffType, RampUpType}
-import com.inland24.plantsim.services.database.DBServiceActor.PowerPlantEventsSeq
-import com.inland24.plantsim.streams.EventsStream.DoNotSendThisMessageAsThisIsDangerousButWeHaveItHereForTestingPurposes
+import com.inland24.plantmon.models.PowerPlantDBEvent.PowerPlantCreateEvent
+import com.inland24.plantmon.models.PowerPlantSignal
+import com.inland24.plantmon.models.PowerPlantSignal.Transition
+import com.inland24.plantmon.models.PowerPlantState.OutOfService
+import com.inland24.plantmon.models.PowerPlantType.{OnOffType, RampUpType}
+import com.inland24.plantmon.services.database.DBServiceActor.PowerPlantEventsSeq
+import com.inland24.plantmon.streams.EventsStream.DoNotSendThisMessageAsThisIsDangerousButWeHaveItHereForTestingPurposes
 import monix.execution.Ack.Continue
 import monix.execution.{Ack, Scheduler}
 import org.scalatest.{BeforeAndAfterAll, Ignore, Matchers, WordSpecLike}

@@ -15,19 +15,19 @@
  *
  */
 
-package com.inland24.plantsim
+package com.inland24.plantmon
 
 import java.util.concurrent.TimeUnit
 
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.models.PowerPlantConfig._
-import com.inland24.plantsim.models.PowerPlantSignal.{
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.models.PowerPlantConfig._
+import com.inland24.plantmon.models.PowerPlantSignal.{
   DefaultAlert,
   Genesis,
   Transition
 }
-import com.inland24.plantsim.models.PowerPlantType._
-import com.inland24.plantsim.services.database.models.PowerPlantRow
+import com.inland24.plantmon.models.PowerPlantType._
+import com.inland24.plantmon.services.database.models.PowerPlantRow
 import org.joda.time.{DateTime, DateTimeZone}
 import play.api.libs.json._
 import play.api.libs.json.Reads._

@@ -15,19 +15,19 @@
  *
  */
 
-package com.inland24.plantsim.models
+package com.inland24.plantmon.models
 
-import com.inland24.plantsim.models.PowerPlantConfig.{
+import com.inland24.plantmon.models.PowerPlantConfig.{
   OnOffTypeConfig,
   RampUpTypeConfig,
   UnknownConfig
 }
-import com.inland24.plantsim.models.PowerPlantType.{
+import com.inland24.plantmon.models.PowerPlantType.{
   OnOffType,
   RampUpType,
   UnknownType
 }
-import com.inland24.plantsim.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.models.PowerPlantRow
 import org.joda.time.{DateTime, DateTimeZone}
 import org.scalatest.FlatSpec
 

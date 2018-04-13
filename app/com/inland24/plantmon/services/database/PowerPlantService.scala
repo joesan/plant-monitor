@@ -15,22 +15,22 @@
  *
  */
 
-package com.inland24.plantsim.services.database
+package com.inland24.plantmon.services.database
 
 import cats.Monad
 import cats.syntax.all._
-import com.inland24.plantsim.models.PowerPlantConfig.{
+import com.inland24.plantmon.models.PowerPlantConfig.{
   OnOffTypeConfig,
   RampUpTypeConfig
 }
-import com.inland24.plantsim.models.PowerPlantType.{OnOffType, RampUpType}
-import com.inland24.plantsim.models.{
+import com.inland24.plantmon.models.PowerPlantType.{OnOffType, RampUpType}
+import com.inland24.plantmon.models.{
   PowerPlantConfig,
   PowerPlantFilter,
   toPowerPlantRow
 }
-import com.inland24.plantsim.services.database.models.PowerPlantRow
-import com.inland24.plantsim.services.database.repository.PowerPlantRepository
+import com.inland24.plantmon.services.database.models.PowerPlantRow
+import com.inland24.plantmon.services.database.repository.PowerPlantRepository
 
 import scala.language.higherKinds
 

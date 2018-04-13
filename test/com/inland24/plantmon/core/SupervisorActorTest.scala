@@ -15,30 +15,30 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import monix.execution.FutureUtils.extensions._
 import akka.actor.ActorSystem
 import akka.testkit.{ImplicitSender, TestKit}
-import com.inland24.plantsim.config.AppConfig
-import com.inland24.plantsim.core.SupervisorActor.SupervisorEvents
-import com.inland24.plantsim.models.PowerPlantConfig.{
+import com.inland24.plantmon.config.AppConfig
+import com.inland24.plantmon.core.SupervisorActor.SupervisorEvents
+import com.inland24.plantmon.models.PowerPlantConfig.{
   OnOffTypeConfig,
   RampUpTypeConfig,
   UnknownConfig
 }
-import com.inland24.plantsim.models.PowerPlantDBEvent.{
+import com.inland24.plantmon.models.PowerPlantDBEvent.{
   PowerPlantCreateEvent,
   PowerPlantDeleteEvent,
   PowerPlantUpdateEvent
 }
-import com.inland24.plantsim.models.PowerPlantType.{
+import com.inland24.plantmon.models.PowerPlantType.{
   OnOffType,
   RampUpType,
   UnknownType
 }
-import com.inland24.plantsim.models.{PowerPlantConfig, PowerPlantType}
-import com.inland24.plantsim.services.database.DBServiceActor.PowerPlantEventsSeq
+import com.inland24.plantmon.models.{PowerPlantConfig, PowerPlantType}
+import com.inland24.plantmon.services.database.DBServiceActor.PowerPlantEventsSeq
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
 
 import scala.concurrent.Await

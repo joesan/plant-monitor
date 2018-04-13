@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import java.util.concurrent.{ArrayBlockingQueue, Callable}
 import java.util.function.Consumer
@@ -25,8 +25,8 @@ import scala.concurrent.duration._
 import com.github.andyglow.websocket.WebsocketClient
 import org.scalatestplus.play._
 import play.api.test.{Helpers, TestServer, WsTestClient}
-import com.inland24.plantsim.controllers.ApplicationTestFactory
-import com.inland24.plantsim.services.database.DBServiceSpec
+import com.inland24.plantmon.controllers.ApplicationTestFactory
+import com.inland24.plantmon.services.database.DBServiceSpec
 import org.scalatest.concurrent.PatienceConfiguration.Timeout
 import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
 import org.scalatest.concurrent.{IntegrationPatience, ScalaFutures}

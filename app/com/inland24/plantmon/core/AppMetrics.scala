@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.core
+package com.inland24.plantmon.core
 
 import java.lang.management.ManagementFactory
 

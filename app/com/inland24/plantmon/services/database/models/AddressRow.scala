@@ -15,7 +15,7 @@
  *
  */
 
-package com.inland24.plantsim.services.database.models
+package com.inland24.plantmon.services.database.models
 
 case class AddressRow(
     id: Int,
