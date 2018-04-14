@@ -21,7 +21,7 @@ import com.inland24.plantmon.config.AppConfig
 import com.inland24.plantmon.core.AppMetrics
 import play.api.libs.json.Json
 import com.inland24.plantmon.models._
-import play.api.mvc.ControllerComponents
+import play.api.mvc.{Action, AnyContent, ControllerComponents}
 
 import scala.concurrent.Future
 
@@ -29,11 +29,11 @@ class ApplicationController(appCfg: AppConfig,
                             val controllerComponents: ControllerComponents)
     extends ControllerBase {
 
-  val host = Json.obj(
+  private val host = Json.obj(
     "hostname" -> java.net.InetAddress.getLocalHost.getHostName
   )
 
-  def metrics = Action.async {
+  def metrics: Action[AnyContent] = Action.async {
     val allMetrics = AppMetrics.metricsAsJsValueSeq(
       AppMetrics.jvmMetrics ++ AppMetrics.dbTimerMetrics
     )
@@ -51,7 +51,7 @@ class ApplicationController(appCfg: AppConfig,
              queryString = Map("url" -> Seq("/swagger.json")))
   }
 
-  def appConfig = Action.async {
+  def appConfig: Action[AnyContent] = Action.async {
     Future.successful(
       Ok(Json.prettyPrint(Json.toJson(appCfg)))
     )

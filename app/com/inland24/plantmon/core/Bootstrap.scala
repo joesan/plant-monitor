@@ -44,12 +44,12 @@ final class Bootstrap extends ApplicationLoader with LazyLogging {
     // We use the Monix Scheduler
     implicit val s = monix.execution.Scheduler.Implicits.global
 
-    def stop(bindings: AppBindings) = {
+    def stop(bindings: AppBindings): Unit = {
       logger.info("Stopping application :: plant-simulator")
       bindings.globalChannel.onComplete()
     }
 
-    def start = {
+    def start: AppBindings = {
       logger.info("Starting application :: plant-simulator")
       AppBindings(actorSystem, materializer)
     }
@@ -78,7 +78,6 @@ final class Bootstrap extends ApplicationLoader with LazyLogging {
       assets,
       applicationController,
       powerPlantController,
-      powerPlantOpsController
       //apiHelpController,
       //webJarAssets
     )
