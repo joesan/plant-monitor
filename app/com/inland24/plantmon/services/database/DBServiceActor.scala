@@ -51,6 +51,7 @@ import scala.concurrent.Future
   *
   * TODO: If the database is down the stream should not throw an error!!!
   * TODO: but rather it should just continue processing as usual!!
+  * TODO: Rename this actor.... it does just more than a DB look up!
   */
 class DBServiceActor private (dbConfig: DBConfig, httpConfig: HTTPServiceConfig)(
   implicit ec: Scheduler) extends Actor with ActorLogging {
