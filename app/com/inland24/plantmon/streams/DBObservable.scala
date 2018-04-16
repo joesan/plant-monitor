@@ -17,7 +17,7 @@
 
 package com.inland24.plantmon.streams
 
-import monix.execution.Cancelable
+import monix.execution.{Cancelable, Scheduler}
 import monix.reactive.Observable
 import monix.reactive.observers.Subscriber
 import monix.execution.FutureUtils.extensions._
@@ -25,7 +25,6 @@ import monix.execution.FutureUtils.extensions._
 import scala.concurrent.Future
 import scala.concurrent.duration.FiniteDuration
 import scala.util.{Failure, Success}
-
 import play.api.Logger
 
 /**
@@ -40,7 +39,7 @@ final class DBObservable[T] private (period: FiniteDuration,
     extends Observable[Seq[T]] {
 
   def unsafeSubscribeFn(subscriber: Subscriber[Seq[T]]): Cancelable = {
-    implicit val s = subscriber.scheduler
+    implicit val s: Scheduler = subscriber.scheduler
 
     def request() = {
       Logger.info("Looking up the database for new updates")

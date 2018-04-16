@@ -18,22 +18,21 @@
 package com.inland24.plantmon.services.database
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
-import com.inland24.plantmon.config.DBConfig
+import com.inland24.plantmon.config.{DBConfig, HTTPServiceConfig}
 import com.inland24.plantmon.core.SupervisorActor.SupervisorEvents
 import com.inland24.plantmon.models.PowerPlantConfig.PowerPlantsConfig
-import com.inland24.plantmon.models.PowerPlantDBEvent.{
-  PowerPlantCreateEvent,
-  PowerPlantDeleteEvent,
-  PowerPlantUpdateEvent
-}
+import com.inland24.plantmon.models.PowerPlantDBEvent.{PowerPlantCreateEvent, PowerPlantDeleteEvent, PowerPlantUpdateEvent}
 import com.inland24.plantmon.models.{PowerPlantConfig, PowerPlantDBEvent}
 import com.inland24.plantmon.services.database.models.PowerPlantRow
 import com.inland24.plantmon.services.database.repository.impl.PowerPlantRepoAsTask
+import com.inland24.plantmon.services.http.HTTPService
 import com.inland24.plantmon.streams.DBObservable
+
 // ******* Note: Both these imports should be here! Do not remove them!
 import monix.cats._
 import monix.eval.Task
 // *******
+
 import monix.execution.{Ack, Scheduler}
 import monix.execution.Ack.Continue
 import monix.execution.cancelables.SingleAssignmentCancelable
@@ -53,22 +52,23 @@ import scala.concurrent.Future
   * TODO: If the database is down the stream should not throw an error!!!
   * TODO: but rather it should just continue processing as usual!!
   */
-class DBServiceActor private (dbConfig: DBConfig, supervisorActor: ActorRef)(
-    implicit ec: Scheduler)
-    extends Actor
-    with ActorLogging {
+class DBServiceActor private (dbConfig: DBConfig, httpConfig: HTTPServiceConfig)(
+  implicit ec: Scheduler) extends Actor with ActorLogging {
 
   // TODO: Should we use the PowerPlantService from the AppBindings instead of using a new instance all together?
   val powerPlantService: PowerPlantService[Task] = new PowerPlantService(
     new PowerPlantRepoAsTask(dbConfig)(ec)
   )
 
+  // Out HTTPService reference
+  val httpService = HTTPService(httpConfig)
+
   // This will be our subscription to fetch from the database
   val dbSubscription = SingleAssignmentCancelable()
 
   override def preStart(): Unit = {
     super.preStart()
-    log.info("Pre Start DBServiceActor")
+    log.info("Pre-Start DBServiceActor")
 
     /**
       * We stream events only when this flag is set to true and by default it is
@@ -111,8 +111,10 @@ class DBServiceActor private (dbConfig: DBConfig, supervisorActor: ActorRef)(
   override def receive: Receive = {
     case powerPlantsConfig: PowerPlantsConfig =>
       val newEvents = DBServiceActor.toEvents(
-        PowerPlantsConfig(DateTime.now(DateTimeZone.UTC),
-                          Seq.empty[PowerPlantConfig]),
+        PowerPlantsConfig(
+          DateTime.now(DateTimeZone.UTC),
+          Seq.empty[PowerPlantConfig]
+        ),
         powerPlantsConfig
       )
       // Signal these events to SupervisorActor
