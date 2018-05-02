@@ -192,7 +192,7 @@ object DBServiceActor {
       newMap)
   }
 
-  def props(dbConfig: DBConfig, supervisorActorRef: ActorRef)(
-      implicit ec: Scheduler): Props =
-    Props(new DBServiceActor(dbConfig, supervisorActorRef)(ec))
+  def props(dbConfig: DBConfig, httpConfig: HTTPServiceConfig)(
+    implicit ec: Scheduler): Props =
+    Props(new DBServiceActor(dbConfig, httpConfig)(ec))
 }
