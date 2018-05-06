@@ -18,10 +18,11 @@ TODO:
    4.1 We will use Apache Kafka for decoupling, but this would mean that the cluster backend could not be load balanced
    4.2 Without Kafka, we could just have an Actor instance that reads for all PowerPlant's that was updated between the last 
        read time and the current time. We have to context become the update time. This has the drawback as there is
-       no possibility to now if the PowerPlant was created new or updated. Of course we could have this information persisted
+       no possibility to know if the PowerPlant was created new or updated. Of course we could have this information persisted
        in the database and use this as our anchor to trigger create, update or delete events. But what happens when dealing with 
        multiple instances against the same database? Remember that this application will run in a K8s cluster with a replication
        factor of 3. If this is replicated thrice, this would mean that all the three instances would be trying to do the same
        thing. We need to avoid this somehow! One solution is to leverage Akka Cluster and have just one Actor that is replicable
-       across all th available instances such that one and only one instance exists.    
+       across all th available instances such that one and only one instance exists. Without Akka cluster, we could also persist
+       the last read time so that we do not run into problems. I guess this is the way to go!   
       

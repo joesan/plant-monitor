@@ -63,6 +63,15 @@ class PowerPlantService[M[_]: Monad](powerPlantRepo: PowerPlantRepository[M]) {
     powerPlantRepo.allPowerPlants(onlyActive)
   }
 
+  def fetchPowerPlantsAndSyncUpdateTime(
+    onlyActive: Boolean = true): M[Seq[PowerPlantRow]] = {
+    // 1. Fetch the last fetch time from the chronometer table
+
+    // 2. Using the last fetch time, get the PowerPlant entries accordingly
+
+    // 3. Update the current time as the last fetch time
+  }
+
   def powerPlantById(id: Int): M[Option[PowerPlantRow]] = {
     powerPlantRepo.powerPlantById(id)
   }
