@@ -45,7 +45,7 @@ class PowerPlantRepoAsTask(dbConfig: DBConfig)(implicit ec: ExecutionContext)
   import schema._
   import schema.driver.api._
 
-  def allPowerPlants(
+  def powerPlants(
       fetchOnlyActive: Boolean = false): Task[Seq[PowerPlantRow]] = {
     val query =
       if (fetchOnlyActive)
@@ -73,19 +73,7 @@ class PowerPlantRepoAsTask(dbConfig: DBConfig)(implicit ec: ExecutionContext)
     )
   }
 
-  // by default, get the first page!
-  /*  def allPowerPlantsPaginated(fetchOnlyActive: Boolean = false, pageNumber: Int = 1): Task[Seq[PowerPlantRow]] = {
-    val query =
-      if (fetchOnlyActive)
-        PowerPlantTable.activePowerPlants
-      else
-        PowerPlantTable.all
-
-    val (from, to) = offset(pageNumber)
-    Task.deferFuture(database.run(query.drop(from).take(to).result))
-  }*/
-
-  def powerPlantById(id: Int): Task[Option[PowerPlantRow]] = {
+  def powerPlant(id: Int): Task[Option[PowerPlantRow]] = {
     withTimerMetrics(
       Task.deferFuture(
         database.run(PowerPlantTable.powerPlantById(id).result.headOption))
@@ -109,4 +97,21 @@ class PowerPlantRepoAsTask(dbConfig: DBConfig)(implicit ec: ExecutionContext)
       )
     )
   }
+
+  // Delete in our case means, setting the PowerPlant inactive
+  override def deletePowerPlant(id: Int): Task[Int] = {
+    withTimerMetrics(
+      Task.deferFuture(
+        database.run(
+          PowerPlantTable.deActivatePowerPlant(id)
+        )
+      )
+    )
+  }
+
+  override def fetchUpdatesAndSyncDate(tenantId: Int): Unit = {
+
+  }
+
+  override def updateSyncDate(tenantId: Int): Unit = ???
 }

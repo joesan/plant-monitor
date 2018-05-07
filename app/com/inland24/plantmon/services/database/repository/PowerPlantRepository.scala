@@ -24,11 +24,31 @@ import com.inland24.plantmon.services.database.models.PowerPlantRow
 import scala.language.higherKinds
 
 trait PowerPlantRepository[M[_]] {
-  def allPowerPlants(fetchOnlyActive: Boolean): M[Seq[PowerPlantRow]]
+  // Fetch operations
+  def powerPlants(onlyActive: Boolean): M[Seq[PowerPlantRow]]
   def powerPlantsPaginated(filter: PowerPlantFilter): M[Seq[PowerPlantRow]]
-  def powerPlantById(id: Int): M[Option[PowerPlantRow]]
+  def powerPlant(id: Int): M[Option[PowerPlantRow]]
+
+  // Create operations
   def newPowerPlant(powerPlantRow: PowerPlantRow): M[Int]
+
+  // Update operations
   def updatePowerPlant(powerPlantRow: PowerPlantRow): M[Int]
+
+  // Delete operations
+  def deletePowerPlant(id: Int): M[Int]
+
+  // Miscellaneous operations
+  /**
+    * This is a multi database call method that does the following:
+    *
+    * 1. Fetch the last sync date from Tenant table
+    * 2. 
+    * @param tenantId The tenant for which we need to run the update
+    */
+  def fetchUpdatesAndSyncDate(tenantId: Int)
+  def updateSyncDate(tenantId: Int)
+
 
   def withTimerMetrics[T](fn: => T): T = {
     val context = AppMetrics.timer.time()

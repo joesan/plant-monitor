@@ -38,7 +38,7 @@ class PowerPlantService[M[_]: Monad](powerPlantRepo: PowerPlantRepository[M]) {
 
   def updatePowerPlant(
       powerPlantCfg: PowerPlantConfig): M[Either[String, PowerPlantConfig]] = {
-    powerPlantRepo.powerPlantById(powerPlantCfg.id).flatMap {
+    powerPlantRepo.powerPlant(powerPlantCfg.id).flatMap {
       case Some(_) =>
         toPowerPlantRow(powerPlantCfg) match {
           case Some(newPowerPlantRow) =>
@@ -60,7 +60,7 @@ class PowerPlantService[M[_]: Monad](powerPlantRepo: PowerPlantRepository[M]) {
 
   def fetchAllPowerPlants(
       onlyActive: Boolean = false): M[Seq[PowerPlantRow]] = {
-    powerPlantRepo.allPowerPlants(onlyActive)
+    powerPlantRepo.powerPlants(onlyActive)
   }
 
   def fetchPowerPlantsAndSyncUpdateTime(
