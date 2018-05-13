@@ -20,6 +20,7 @@ package com.inland24.plantmon.services.database.repository
 import com.inland24.plantmon.core.AppMetrics
 import com.inland24.plantmon.models.PowerPlantFilter
 import com.inland24.plantmon.services.database.models.PowerPlantRow
+import org.joda.time.DateTime
 
 import scala.language.higherKinds
 
@@ -42,11 +43,11 @@ trait PowerPlantRepository[M[_]] {
   /**
     * This is a multi database call method that does the following:
     *
-    * 1. Fetch the last sync date from Tenant table
-    * 2. 
+    * 1. Using the last sync date, read all PowerPlant's that have been modified
+    * 2. Update the last sync date in the chronometer table
     * @param tenantId The tenant for which we need to run the update
     */
-  def fetchUpdatesAndSyncDate(tenantId: Int)
+  def fetchUpdatesAndSyncDate(tenantId: Int, lastReadTime: DateTime)
   def updateSyncDate(tenantId: Int)
 
 

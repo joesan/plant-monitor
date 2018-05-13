@@ -20,11 +20,9 @@ package com.inland24.plantmon.services.database.repository.impl
 import com.inland24.plantmon.config.DBConfig
 import com.inland24.plantmon.models.PowerPlantFilter
 import com.inland24.plantmon.services.database.models.PowerPlantRow
-import com.inland24.plantmon.services.database.repository.{
-  DBSchema,
-  PowerPlantRepository
-}
+import com.inland24.plantmon.services.database.repository.{DBSchema, PowerPlantRepository}
 import monix.eval.Task
+import org.joda.time.DateTime
 
 import scala.concurrent.ExecutionContext
 
@@ -109,7 +107,7 @@ class PowerPlantRepoAsTask(dbConfig: DBConfig)(implicit ec: ExecutionContext)
     )
   }
 
-  override def fetchUpdatesAndSyncDate(tenantId: Int): Unit = {
+  override def fetchUpdatesAndSyncDate(tenantId: Int, lastReadTime: DateTime): Unit = {
 
   }
 
