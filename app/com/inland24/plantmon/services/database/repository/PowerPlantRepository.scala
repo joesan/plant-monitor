@@ -50,7 +50,6 @@ trait PowerPlantRepository[M[_]] {
   def fetchUpdatesAndSyncDate(tenantId: Int, lastReadTime: DateTime)
   def updateSyncDate(tenantId: Int)
 
-
   def withTimerMetrics[T](fn: => T): T = {
     val context = AppMetrics.timer.time()
     try {

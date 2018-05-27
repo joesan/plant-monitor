@@ -107,8 +107,16 @@ class PowerPlantRepoAsTask(dbConfig: DBConfig)(implicit ec: ExecutionContext)
     )
   }
 
-  override def fetchUpdatesAndSyncDate(tenantId: Int, lastReadTime: DateTime): Unit = {
+  override def fetchUpdatesAndSyncDate(tenantId: Int, lastReadTime: DateTime, now: DateTime): Seq[PowerPlantRow] = {
+    // 0. prerequisites
+    // Only when the fetching of records is successful should we write the time now to the chronometer table
+    // Only if the write to the chronometer table is successful should be return the list of records
+    // So what we need is a orchestrated future
+    // 1. Fetch all the records from the PowerPlant table that comes after the lastReadTime and now
 
+    // 2. Upon success of step 1, update the current time in the chronometer table with now
+
+    // 3. Upon success of step 2, return the fetched records
   }
 
   override def updateSyncDate(tenantId: Int): Unit = ???
